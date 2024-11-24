@@ -1,12 +1,76 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <meta charset="UTF-8" />
-    <title>Hello World!</title>
-    <link rel="stylesheet" href="index.css" />
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Hello Bulma!</title>
+    <link rel="stylesheet" href="../dist/css/bulma.min.css">
+    <link rel="stylesheet" href="../dist/css/tabulator_bulma.min.css">
   </head>
   <body>
-    <h1>💖 Hello World!</h1>
-    <p>Welcome to your Electron application.</p>
+  <section class="section">
+    <div class="container">
+      <aside class="menu">
+        <p class="menu-label">Menu</p>
+        <ul class="menu-list">
+          <li><a>Pencarian</a></li>
+          <li><a>Penambahan</a></li>
+        </ul>
+        <p class="menu-label">Settings</p>
+        <ul class="menu-list">
+          <li><a
+            id="open-server-connection-settings"
+            data-target="server-connection-settings">Server Connection</a>
+          </li>
+        </ul>
+      </aside>
+    </div>
+  </section>
+  <section class="section">
+    <div class="container">
+      <h1 class="title">
+        Pencarian
+      </h1>
+      <div class="field">
+        <label class="label">Nama Item</label>
+        <div class="control">
+          <input id="query" class="input" type="text" placeholder="Kain Majun">
+        </div>
+      </div>
+      <div id="query-result"></div>
+    </div>
+  </section>
+  <section class="section">
+    <div class="container">
+      <h1 class="title">
+        Penambahan
+      </h1>
+      <div id="item-table"></div>
+    </div>
+  </section>
+  <div id="server-connection-settings" class="modal">
+    <div class="modal-background"></div>
+    <div class="modal-card">
+      <header class="modal-card-head">
+        <p class="modal-card-title">Server Connection</p>
+        <button id="close-server-connection-settings" class="delete" aria-label="close"></button>
+      </header>
+      <section class="modal-card-body">
+        <div class="field">
+          <label class="label">Server URL</label>
+          <div class="control">
+            <input id="server-url" class="input" type="text" placeholder="http://192.168.0.1">
+          </div>
+        </div>
+      </section>
+      <footer class="modal-card-foot">
+        <div class="buttons">
+          <button id="update-client" class="button is-success">Save changes</button>
+          <!-- <button class="button">Cancel</button> -->
+        </div>
+      </footer>
+    </div>
+  </div>
+  <script type="module" src="./renderer.js"></script>
   </body>
 </html>
